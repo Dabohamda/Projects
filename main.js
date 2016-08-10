@@ -48,11 +48,32 @@ for (var i= 0; i< buttons.length; i++)  {
 			break;
 			case '=': 
 			rightOperand=memory;
-			result=process(operator,)   
-
-
-
-
+			result=process(operator,leftOperand,rightOperand);
+			memory=result; 
+			break;
 		}
-	};
+		screen.innerText=memory;
+	}
+}
+function process(operator,leftOperand,rightOperand){
+	leftOperand=parseInt(leftOperand);
+	rightOperand=parseInt(rightOperand);
+	var result;
+	switch(operator){
+		case '/':
+			result=(leftOperand/rightOperand);
+		break;
+		case '*':
+			result=(leftOperand*rightOperand);
+		break;
+		case '-':
+			result=(leftOperand-rightOperand);
+		break;
+		case '+':
+			result=(leftOperand+rightOperand);
+		break;
+		default:
+		result=rightOperand;
+	}
+	return result;
 }
